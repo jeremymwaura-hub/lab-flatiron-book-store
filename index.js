@@ -45,31 +45,34 @@ const bookStore = {
 
 // Write your code here!
 
-// Step 2: Select header and update title
+// Step 2: Update header
 const bookStoreTitle = document.getElementById('header');
-bookStoreTitle.textContent = 'Flatbooks';
+bookStoreTitle.textContent = 'Flatbooks Technical Books';
 
-// Select the book list container
+// Select book list
 const bookList = document.getElementById('book-list');
 
-// Step 3: Loop through books and create elements
+// Clear default content (IMPORTANT for tests)
+bookList.innerHTML = '';
+
+// Step 3: Loop through books
 bookStore.books.forEach((book) => {
-  // Create elements
   const bookContainer = document.createElement('li');
   const bookTitle = document.createElement('h3');
   const bookAuthor = document.createElement('p');
   const bookImage = document.createElement('img');
 
-  // Set content
+  // Set correct properties
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
-  bookImage.src = book.image;
 
-  // Append elements
+  // correct key name
+  bookImage.src = book.imageUrl;
+
+  // Append
   bookContainer.appendChild(bookTitle);
   bookContainer.appendChild(bookAuthor);
   bookContainer.appendChild(bookImage);
 
-  // Add to list
   bookList.appendChild(bookContainer);
 });
